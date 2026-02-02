@@ -18,7 +18,7 @@ const App = () => {
     <RouterWrapper>
       <Header links={links} basename={basename} />
       {appConfig.features.analytics && <small>Analytics enabled ({appConfig.appName})</small>}
-      <Router basename={basename} />
+      <Router />
     </RouterWrapper>
   )
 }
