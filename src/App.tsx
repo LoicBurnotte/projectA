@@ -7,15 +7,15 @@ import { RouterWrapper } from './RouterWrapper'
 import './index.scss'
 
 // When running standalone: set VITE_BASENAME=/about in .env.local so the app runs at /about, /about/test1, etc.
-const defaultBasename = import.meta.env.VITE_BASENAME ?? '/about'
+const defaultBasename = import.meta.env.VITE_BASENAME ?? ''
 const isStandalone = false // !!import.meta.env.DEV
 
 const App = () => {
   const basename = isStandalone ? undefined : defaultBasename
 
-  console.log('Render AppConfig from HOST: ', appConfig)
+  console.log('Render Host AppConfig from the ProjectA: ', appConfig, isStandalone)
   return (
-    <RouterWrapper basename={basename}>
+    <RouterWrapper>
       <Header links={links} basename={basename} />
       {appConfig.features.analytics && <small>Analytics enabled ({appConfig.appName})</small>}
       <Router basename={basename} />
