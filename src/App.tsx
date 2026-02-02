@@ -8,7 +8,7 @@ import './index.scss'
 
 // When running standalone: set VITE_BASENAME=/about in .env.local so the app runs at /about, /about/test1, etc.
 const defaultBasename = import.meta.env.VITE_BASENAME ?? '/about'
-const isStandalone = !!import.meta.env.DEV
+const isStandalone = false // !!import.meta.env.DEV
 
 const App = () => {
   const basename = isStandalone ? undefined : defaultBasename

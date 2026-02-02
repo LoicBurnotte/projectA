@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 import federation from '@originjs/vite-plugin-federation'
 
 // Host URL: set VITE_HOST_URL when running projectA standalone (e.g. host on Vercel). Default: local dev.
-const hostUrl = (process.env.VITE_HOST_URL ?? '').replace(/\/$/, '') || 'http://localhost:3000'
+const hostUrl = (process.env.VITE_HOST_URL ?? '').replace(/\/$/, '') || 'http://localhost:3000/build'
 
 /** Ensures CORS headers so remotes (e.g. projectA on Vercel) can load host remoteEntry from localhost. */
 function corsForFederation() {
@@ -46,7 +46,7 @@ export default defineConfig({
         './App': './src/App.tsx',
       },
       remotes: {
-        host: `${hostUrl}/build/assets/remoteEntry.js`,
+        host: `${hostUrl}/assets/remoteEntry.js`,
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),
