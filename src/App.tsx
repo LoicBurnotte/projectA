@@ -12,6 +12,8 @@ const isStandalone = false // !!import.meta.env.DEV
 
 const App = () => {
   const basename = isStandalone ? undefined : defaultBasename
+
+  console.log('Render AppConfig from HOST: ', appConfig)
   return (
     <RouterWrapper basename={basename}>
       <Header links={links} basename={basename} />
